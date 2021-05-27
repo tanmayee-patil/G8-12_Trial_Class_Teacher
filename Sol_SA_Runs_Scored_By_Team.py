@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
 # ## Student's Activity Teacher's Copy: Runs by IPL teams in the tournament till 2020
 # 
 # #### Understanding the Dataset
