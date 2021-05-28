@@ -1,7 +1,7 @@
 #Pygame is a free and open-source cross-platform library used for the development of multimedia applications like video games using Python.
 import pygame
 
-#Pygame.init() initializes all imported pygame modules. No exceptions will be raised if a module fails, but the total number of successful and failed inits will be returned as a tuple. You can always initialize individual modules manually, but pygame.init() initializess all the imported pygame modules is a convenient way to get everything started. The init() functions for individual modules will raise exceptions when they fail
+#Pygame.init() initializes all imported pygame modules. No exceptions will be raised if a module fails, but the total number of successful and failed inits will be returned as a tuple. You can always initialize individual modules manually, but pygame.init() initializess all the imported pygame modules. It is used to raise exceptions when the module fails. The init() functions for individual modules will raise exceptions when they fail
 pygame.init()
 
 #In Pygame, colors are expressed according to how much volumne of red, green, and blue they have in them, hence we use the term RGB color code. You provide three values in the parentheses: one for each color (red, green, and blue), ranging from 0 for none, up to 255 for the maximum. To understand hexcolors in detail, refer to "https://www.pygame.org/docs/ref/color.html"
@@ -10,7 +10,7 @@ DARKBLUE = (36,90,190)                                                          
 LIGHTBLUE = (0,176,240)                                                         #Hex code for lightblue color
 RED = (255,0,0)                                                                 #Hex code for red color
 
-#Pygame uses Rect objects to store and manipulate rectangular areas. A Rect can be created from a combination of left, top, width, and height values. Rects can also be created from python objects that are already a Rect or have an attribute named "rect". 
+#Pygame uses Rect objects to store and manipulate rectangular areas. By using Rect, we can specify a combination of left, top, width, and height values. Rects can also be created from python objects that are already a Rect or have an attribute named "rect". 
 #Here we are drawing templates for bricks in a horizontal manner where bricks1 is the lowermost layer. We are drawing 6 blocks by using "list comprehension"==> used for creating new lists from other iterables. As list comprehensions return lists, they consist of brackets containing the expression, which is executed for each element along with the for loop to iterate over each element.
 bricks1=[pygame.Rect(10 + i* 100,60,80,30) for i in range(6)]
 bricks2=[pygame.Rect(10 + i* 100,100,80,30) for i in range(6)]
@@ -29,7 +29,7 @@ def draw_brick(brick_list):                                                     
 score = 0                                                                       #Assign a variable named score value = 0. This is also called as "variable initialization"
 
 
-#The list is a most versatile datatype available in Python which can be written as a list of comma-separated values (items) between square brackets. One important thing about a list is that items in a list need not be of the same type.
+#The list is a most versatile datatype available in Python which can be written as a list of comma-separated values (items) between square brackets. One important thing about a list is that items in a list need not be of the same type. For example: L1=[“python”, 3]
 velocity=[1,1]                                                                  #A list is created to control the velocity of ball, paddle in further code to come
 
 #Pygame can only have a single display active at any time. Creating a new one with pygame.display.set_mode() will close the previous display. 
@@ -83,7 +83,7 @@ while carryOn:                                                                  
 
     if ball.x>=590 or ball.x<=0:                                                #Check for maximum and minimum pixels
 
-#Making the velocity negative (Please clearout the game's dynamics concept i.e., physics while designing a game to understand this step. "https://www.daniweb.com/programming/game-development/threads/122431/breakout-ball-bouncing-physics" refer to "MattEvans" first answer on this post")
+#Making the velocity negative (Please get yourself familiar with the game's dynamics concept i.e., physics while designing a game to understand this step. "https://www.daniweb.com/programming/game-development/threads/122431/breakout-ball-bouncing-physics" refer to "MattEvans" first answer on this post")
         velocity[0] = -velocity[0]
                                               
     if ball.y<=3:                                                               #Check for ball's y co-ordinate
@@ -101,7 +101,7 @@ while carryOn:                                                                  
 #display. flip() is used for software displays. It allows only a portion of the screen to update, instead of the entire area. If no argument is passed, then it updates the entire Surface area like pygame.
         pygame.display.flip()                                                   #Updating the display on the screen
 
-#pygame. time. delay() will pause for a given number of milliseconds based on the CPU clock for more accuracy (as opposed to pygame. time. wait)
+#pygame. time. delay() will pause for a given number of milliseconds based on the CPU clock for more accuracy.
         pygame.time.wait(2000)                                                  #Wait is provided before ending the game
 
 #The most common use for break is when some external condition is triggered requiring a hasty exit from a loop. The break statement can be used in both while and for loops.
