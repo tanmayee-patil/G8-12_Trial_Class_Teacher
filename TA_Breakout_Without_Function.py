@@ -11,7 +11,9 @@ RED = (255,0,0)
 bricks1=[pygame.Rect(10 + i* 100,60,80,30) for i in range(6)]
 bricks2=[pygame.Rect(10 + i* 100,100,80,30) for i in range(6)]
 bricks3=[pygame.Rect(10 + i* 100,140,80,30) for i in range(6)]
-    
+
+#write the function to draw bricks here
+
 score = 0
 
 velocity=[1,1]
@@ -39,12 +41,9 @@ while carryOn:
             if paddle.x>0:
                 paddle.x-=5
     # brick wall   
-    for i in bricks1:
-        pygame.draw.rect(screen,RED,i)
-    for i in bricks2:
-        pygame.draw.rect(screen,RED,i)
-    for i in bricks3:
-        pygame.draw.rect(screen,RED,i)
+    #call the function draw_bricks() and pass paramter as "bricks1"
+    #call the function draw_bricks() and pass paramter as "bricks2"
+    #call the function draw_bricks() and pass paramter as "bricks3"
     
     #ball movement    
     ball.x+=velocity[0]
