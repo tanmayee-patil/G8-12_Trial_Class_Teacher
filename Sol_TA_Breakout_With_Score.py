@@ -6,8 +6,6 @@ DARKBLUE = (36,90,190)
 LIGHTBLUE = (0,176,240)
 RED = (255,0,0)
 
-
-
 bricks1=[pygame.Rect(10 + i* 100,60,80,30) for i in range(6)]
 bricks2=[pygame.Rect(10 + i* 100,100,80,30) for i in range(6)]
 bricks3=[pygame.Rect(10 + i* 100,140,80,30) for i in range(6)]
