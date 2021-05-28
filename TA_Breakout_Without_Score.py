@@ -6,15 +6,11 @@ DARKBLUE = (36,90,190)
 LIGHTBLUE = (0,176,240)
 RED = (255,0,0)
 
-
-
 bricks1=[pygame.Rect(10 + i* 100,60,80,30) for i in range(6)]
 bricks2=[pygame.Rect(10 + i* 100,100,80,30) for i in range(6)]
 bricks3=[pygame.Rect(10 + i* 100,140,80,30) for i in range(6)]
 
-def draw_brick(brick_list):
-    for i in brick_list:
-        pygame.draw.rect(screen,RED,i)
+#initialize score variable
 
 velocity=[1,1]
 size = (600, 600)
@@ -23,6 +19,7 @@ pygame.display.set_caption("Breakout Game")
 paddle=pygame.Rect(300,550,60,10) #(x,y,width,height)
 ball=pygame.Rect(200,250,10,10)
 carryOn = True
+
 while carryOn:
     for event in pygame.event.get(): # User did something
             if event.type == pygame.QUIT: # If user clicked close
@@ -40,11 +37,13 @@ while carryOn:
             if paddle.x>0:
                 paddle.x-=5
     # brick wall   
-    draw_brick(bricks1)
-    draw_brick(bricks2)
-    draw_brick(bricks3)
-    
-    
+    for i in bricks1:
+        pygame.draw.rect(screen,RED,i)
+    for i in bricks2:
+        pygame.draw.rect(screen,RED,i)
+    for i in bricks3:
+        pygame.draw.rect(screen,RED,i)
+      
     #ball movement    
     ball.x+=velocity[0]
     ball.y+=velocity[1]  
@@ -69,19 +68,27 @@ while carryOn:
             bricks1.remove(i)
             velocity[0] = -velocity[0]
             velocity[1]=-velocity[1]
-            
+            score+=1
     for i in bricks2:
         if i.collidepoint(ball.x,ball.y):
             bricks2.remove(i)
             velocity[0] = -velocity[0]
             velocity[1]=-velocity[1]
-            
+            score+=1
     for i in bricks3:
         if i.collidepoint(ball.x,ball.y):
             velocity[0] = -velocity[0]
             velocity[1]=-velocity[1]
             bricks3.remove(i)
-                
+            score+=1
+           
+    if score==18:
+        font = pygame.font.Font(None, 74)
+        text = font.render("YOU WON!!", 1, RED)
+        screen.blit(text, (150,350))
+        pygame.display.flip()
+        pygame.time.wait(2000)
+        break
     pygame.time.wait(1)
     pygame.display.flip()       
 pygame.quit(  )
