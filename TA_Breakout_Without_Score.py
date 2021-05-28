@@ -68,19 +68,19 @@ while carryOn:
             bricks1.remove(i)
             velocity[0] = -velocity[0]
             velocity[1]=-velocity[1]
-            score+=1
+            score+=1 
     for i in bricks2:
         if i.collidepoint(ball.x,ball.y):
             bricks2.remove(i)
             velocity[0] = -velocity[0]
             velocity[1]=-velocity[1]
-            score+=1
+            score+=1 #Increment score
     for i in bricks3:
         if i.collidepoint(ball.x,ball.y):
             velocity[0] = -velocity[0]
             velocity[1]=-velocity[1]
             bricks3.remove(i)
-            score+=1
+            score+=1 #Increment score
            
     if score==18:
         font = pygame.font.Font(None, 74)
